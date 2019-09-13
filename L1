@@ -1,0 +1,41 @@
+1a
+print(getwd())
+setwd("F:/7th sem/7th SEM/DSR/Dataset/Dataset")
+data1 = read.csv("bank-data.csv")
+data1 = head(data1, 10)
+data2 = data.frame(data1[0])
+print(data1)
+print(data2)
+for(i in data1){
+  flag=0
+  for(j in i){
+    #print(typeof(j))
+    print(typeof(j))
+    if(typeof(j)=="integer" || typeof(j)=="numeric"){
+      
+      if(flag!="o"){
+      flag=1
+      }
+    }
+      if(flag==1){
+      data2 = cbind(data2, i)
+      flag="o"}
+ 
+  }
+}
+print(summary(data2))
+plot(data2,xlab="Age",ylab="Cars owned",main="Car distribution among the different age groups")
+print(data2)
+print(summary(data1))
+
+
+1b
+setwd("F:/7th sem/7th SEM/DSR/Dataset/Dataset")
+R = read.delim("bank-data.csv",sep=",")
+r = head(R, 6)
+parents = c("Married", "Divorced","Married", "Married", "Divorced", "Divorced")
+r$Parents = parents
+print(parents)
+print(r$married)
+print(r)
+write.csv("bank-parent.csv", x = r,row.names = FALSE)
